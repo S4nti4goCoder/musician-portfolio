@@ -1,0 +1,136 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Logo */
+.navbar__left {
+  flex-shrink: 0;
+}
+
+.logo-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #00a6fb;
+  letter-spacing: 1px;
+}
+
+/* Enlaces del centro */
+.navbar__center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  white-space: nowrap;
+}
+
+.navbar__center a {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar__center a:hover {
+  color: #00a6fb;
+}
+
+/* Botón CTA */
+.navbar__right {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar__cta {
+  background-color: #fb4d3d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar__cta:hover {
+  background-color: #d73b2f;
+}
+
+/* Botón hamburguesa */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 1001;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.5rem;
+  }
+
+  .navbar__center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    display: none;
+    z-index: 999;
+    transform: none;
+  }
+
+  .navbar__center.open {
+    display: flex;
+  }
+
+  .navbar__center a {
+    font-size: 1.2rem;
+  }
+
+  .navbar__right {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+}
