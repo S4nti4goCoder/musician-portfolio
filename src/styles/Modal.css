@@ -1,0 +1,45 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal__content {
+  background: #1a1a1a;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 1rem;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .modal__content {
+    padding: 1.5rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

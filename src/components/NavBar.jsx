@@ -5,6 +5,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const handleLinkClick = () => setMenuOpen(false);
 
   return (
     <nav className="navbar">
@@ -13,17 +14,27 @@ const Navbar = () => {
       </div>
 
       <div className={`navbar__center ${menuOpen ? "open" : ""}`}>
-        <a href="#">Inicio</a>
-        <a href="#">Biografía</a>
-        <a href="#">Proyectos</a>
-        <a href="#">Eventos</a>
-        <a href="#">Prensa</a>
+        <a href="#" onClick={handleLinkClick}>
+          Inicio
+        </a>
+        <a href="#" onClick={handleLinkClick}>
+          Biografía
+        </a>
+        <a href="#" onClick={handleLinkClick}>
+          Proyectos
+        </a>
+        <a href="#" onClick={handleLinkClick}>
+          Eventos
+        </a>
+        <a href="#" onClick={handleLinkClick}>
+          Prensa
+        </a>
       </div>
 
       <div className="navbar__right">
         <button className="navbar__cta">Contratar Artista</button>
         <button className="navbar__toggle" onClick={toggleMenu}>
-          &#9776;
+          {menuOpen ? "✖" : "☰"}
         </button>
       </div>
     </nav>
