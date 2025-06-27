@@ -1,0 +1,89 @@
+.audio-player {
+  background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
+  backdrop-filter: blur(12px);         /* efecto de desenfoque */
+  -webkit-backdrop-filter: blur(12px); /* soporte para Safari */
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #ddd;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Imagen de portada del álbum */
+.audio-player__cover {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Información de la pista */
+.audio-player__info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.audio-player__info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Barra de progreso */
+.audio-player__progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.audio-player__progress input[type="range"] {
+  flex: 1;
+  appearance: none;
+  background: #ccc;
+  height: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.audio-player__progress input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  background: #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Botones de control */
+.audio-player__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  font-size: 1rem;
+  background: transparent;
+  color: #eee;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.circle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* Botón de reproducción más grande */
+.circle-btn.main {
+  font-size: 1.3rem;
+  border-color: #fff;
+}

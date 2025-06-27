@@ -1,22 +1,27 @@
 import React from "react";
 import "../styles/HeroSection.css";
-import heroImage from "../assets/hero.jpg"; // imagen de fondo
+import heroImage from "../assets/hero.jpg";
+import AudioPlayer from "./AudioPlayer";
 
 function HeroSection() {
   return (
     <section
-      className="hero-bg"
+      className="hero"
       style={{ backgroundImage: `url(${heroImage})` }}
     >
-      <div className="hero-bg__overlay">
-        <div className="hero-bg__content">
-          <h1 className="hero-bg__title">BIO</h1>
-          <p className="hero-bg__description">
-            Estilo profundo, letras honestas y una conexión única con el público
-            definen a este artista contemporáneo. Una mezcla de raíces latinas
-            con influencias modernas que conmueven y despiertan.
+      <div className="hero__overlay" />
+      <div className="hero__content">
+        <div className="hero__text">
+          <h1>Frank García</h1>
+          <p>
+            Frank García es un artista que transforma vivencias en canciones con alma.
+            Sus raíces latinas, su pasión por lo humano y una sensibilidad honesta
+            lo convierten en una voz única de la música contemporánea.
           </p>
-          <button className="hero-bg__cta">Ver Biografía</button>
+        </div>
+
+        <div className="hero__player">
+          <AudioPlayer />
         </div>
       </div>
     </section>

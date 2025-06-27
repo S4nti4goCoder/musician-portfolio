@@ -1,13 +1,19 @@
-import NavBar from "./components/NavBar";
+import { useState } from "react";
+import Navbar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
-import BioSection from "./components/BioSection";
+import HireModal from "./components/HireModal";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
-      <NavBar />
+      <Navbar onOpenModal={openModal} />
       <HeroSection />
-      <BioSection />
+      <HireModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }

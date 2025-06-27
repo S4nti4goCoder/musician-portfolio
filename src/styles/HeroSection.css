@@ -1,97 +1,88 @@
-.hero-bg {
+.hero {
   position: relative;
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  background-repeat: no-repeat;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 100px 3rem 0;
+  overflow: hidden;
 }
 
-/* Capa de oscurecimiento */
-.hero-bg__overlay {
+.hero__overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.85) 40%,
-    rgba(0, 0, 0, 0.3)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 4rem;
-}
-
-/* Contenido del texto */
-.hero-bg__content {
-  max-width: 600px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
-.hero-bg__title {
-  font-size: 4rem;
-  color: #fff;
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.hero__text {
+  color: white;
+  max-width: 500px;
+}
+
+.hero__text h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.hero-bg__description {
-  font-size: 1rem;
-  color: #ddd;
+.hero__text p {
+  font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
-  font-family: "Poppins", sans-serif;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.hero-bg__cta {
-  background-color: #fb4d3d;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  transition: background-color 0.3s ease;
+/* Animación para el reproductor */
+.audio-player {
+  animation: fadeInUp 0.6s ease;
 }
 
-.hero-bg__cta:hover {
-  background-color: #d73b2f;
-}
-
-/* ----------- Responsive Móvil ----------- */
-@media (max-width: 768px) {
-  .hero-bg__overlay {
-    justify-content: center;
-    padding: 2rem;
-    background: rgba(
-      0,
-      0,
-      0,
-      0.7
-    ); /* más oscuro para mayor contraste en móvil */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .hero-bg__content {
+/* Responsive para mobile */
+@media (max-width: 768px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
     text-align: center;
   }
 
-  .hero-bg__title {
-    font-size: 2.8rem;
+  .hero__text h1 {
+    font-size: 2.2rem;
   }
 
-  .hero-bg__description {
-    font-size: 0.95rem;
-  }
-
-  .hero-bg__cta {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+  .hero__text p {
+    font-size: 1rem;
   }
 }

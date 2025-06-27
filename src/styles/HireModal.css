@@ -1,0 +1,114 @@
+.hire-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hire-modal__content {
+  background: #111;
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 480px;
+  color: white;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hire-modal__close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.hire-modal__close:hover {
+  transform: scale(1.2);
+}
+
+.hire-modal__content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.hire-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hire-form input,
+.hire-form textarea {
+  padding: 0.8rem 1rem;
+  background: #1c1c1c;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.hire-form input:focus,
+.hire-form textarea:focus {
+  border-color: #00a6fb;
+}
+
+.hire-form textarea {
+  resize: none;
+}
+
+.hire-form button {
+  background: #fb4d3d;
+  border: none;
+  padding: 0.9rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(251, 77, 61, 0.4);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hire-form button:hover {
+  background: #d73b2f;
+  transform: translateY(-1px);
+}
