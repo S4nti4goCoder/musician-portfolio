@@ -1,25 +1,21 @@
 .audio-player {
-  background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
-  backdrop-filter: blur(12px);         /* efecto de desenfoque */
-  -webkit-backdrop-filter: blur(12px); /* soporte para Safari */
-  border-radius: 16px;
+  background-color: #fff;
+  border-radius: 1.5rem;
   padding: 1.5rem;
-  max-width: 360px;
+  max-width: 400px;
   margin: 0 auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   text-align: center;
-  color: #ddd;
+  color: #333;
   font-family: "Poppins", sans-serif;
 }
 
-/* Imagen de portada del álbum */
 .audio-player__cover {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
 
-/* Información de la pista */
 .audio-player__info h4 {
   font-size: 1rem;
   font-weight: 600;
@@ -28,23 +24,22 @@
 
 .audio-player__info p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #666;
   margin-bottom: 1rem;
 }
 
-/* Barra de progreso */
 .audio-player__progress {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .audio-player__progress input[type="range"] {
   flex: 1;
   appearance: none;
-  background: #ccc;
+  background: #e0e0e0;
   height: 4px;
   border-radius: 4px;
   cursor: pointer;
@@ -52,38 +47,115 @@
 
 .audio-player__progress input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  background: #fff;
+  background: #333;
   width: 12px;
   height: 12px;
   border-radius: 50%;
 }
 
-/* Botones de control */
 .audio-player__buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
+/* Botones circulares */
 .circle-btn {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #aaa;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #bbb;
   border-radius: 50%;
-  font-size: 1rem;
-  background: transparent;
-  color: #eee;
-  cursor: pointer;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: background 0.3s, border-color 0.3s;
+  line-height: 0;
 }
 
+/* Íconos dentro de los botones */
+.circle-btn svg {
+  font-size: 1.2rem;
+  display: block;
+}
+
+/* Envoltorio para ajustar ícono Play */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-1px); /* Ajuste óptico solo al Play */
+}
+
+/* Ícono de Play */
+.circle-btn.play-icon .icon-wrapper svg {
+  font-size: 1.4rem;
+}
+
+/* Hover */
 .circle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #999;
 }
 
-/* Botón de reproducción más grande */
-.circle-btn.main {
-  font-size: 1.3rem;
-  border-color: #fff;
+/* Volumen flotante */
+.volume-container {
+  position: relative;
+}
+
+.volume-slider {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+}
+
+.volume-slider.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.volume-slider input[type="range"] {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  height: 80px;
+  width: 6px;
+  background: #ccc;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  accent-color: #333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .audio-player {
+    padding: 1rem;
+  }
+
+  .circle-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .circle-btn.play-icon .icon-wrapper svg {
+    font-size: 1.3rem;
+  }
+
+  .volume-slider {
+    bottom: 45px;
+  }
 }
