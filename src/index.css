@@ -33,3 +33,25 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+/* ========== REGLAS GLOBALES ========== */
+
+/* Ocultar WhatsApp y Scroll-to-top cuando hay modales abiertos */
+body:has(.navbar__center.open) .whatsapp-button,
+body:has(.navbar__center.open) .scroll-top-button,
+body:has(.hire-modal__overlay) .whatsapp-button,
+body:has(.hire-modal__overlay) .scroll-top-button,
+body:has(.modal__overlay) .whatsapp-button,
+body:has(.modal__overlay) .scroll-top-button,
+body:has(.lightbox) .whatsapp-button,
+body:has(.lightbox) .scroll-top-button {
+  display: none !important;
+}
+
+/* Prevenir scroll cuando hay modales abiertos */
+body:has(.navbar__center.open),
+body:has(.hire-modal__overlay),
+body:has(.modal__overlay),
+body:has(.lightbox) {
+  overflow: hidden;
+}

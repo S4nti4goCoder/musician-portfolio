@@ -1,3 +1,5 @@
+/* ========== HERO SECTION - REFACTORIZADO ========== */
+
 .hero {
   position: relative;
   background-size: cover;
@@ -7,9 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 2rem 3rem;
-  overflow: hidden;
-  flex-direction: column;
+  padding: 0 2rem;
 }
 
 .hero__overlay {
@@ -24,54 +24,73 @@
   z-index: 1;
 }
 
-.hero__content {
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.hero__container {
   position: relative;
   z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  max-width: 1300px;
   width: 100%;
+  align-items: start;
 }
 
-.hero__text {
-  max-width: 540px;
-  animation: fadeIn 1s ease-out both;
+/* ========== LADO IZQUIERDO - TEXTOS ========== */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100%;
+  justify-content: space-between;
+  max-width: 580px;
 }
 
-/* Título */
+/* Sección del título */
+.hero__title-section {
+  animation: fadeIn 0.8s ease-out;
+}
+
 .hero__name {
   font-family: "Poppins", sans-serif;
   font-size: 4.2rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 1.2rem;
   letter-spacing: -1px;
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
 }
 
 .hero__highlighted {
   color: #d4af37;
 }
 
-/* Textos */
+/* Sección de información */
+.hero__info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
 .hero__intro {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
   color: #f1f1f1;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
 .hero__subtext {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #e0e0e0;
-  margin-bottom: 1.2rem;
   font-family: "Poppins", sans-serif;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
 }
 
 .hero__quote {
@@ -82,15 +101,16 @@
   opacity: 0.9;
   font-family: "Poppins", sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  margin: 0;
 }
 
-/* Redes sociales con tooltip */
+/* Redes sociales */
 .hero__socials {
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
-  margin-top: 7.5rem;
-  flex-wrap: wrap;
+  margin-top: auto;
+  justify-content: center;
+  animation: fadeIn 1.2s ease-out 0.4s both;
 }
 
 .tooltip-container {
@@ -132,13 +152,12 @@
   opacity: 1;
 }
 
-/* ✅ Reproductor más arriba */
-.hero__player {
-  margin-top: 0;
-  animation: fadeInUp 0.6s ease;
+/* ========== LADO DERECHO - REPRODUCTOR ========== */
+.hero__right {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
-/* Animaciones */
+/* ========== ANIMACIONES ========== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -153,7 +172,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -161,22 +180,41 @@
   }
 }
 
-/* ✅ Responsive */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
-  .hero__content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
+  .hero {
+    padding: 100px 1rem 2rem;
+    min-height: 100vh;
   }
 
-  .hero__text {
+  .hero__container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
     max-width: 100%;
+  }
+
+  .hero__left {
+    gap: 2.5rem;
+    height: auto;
+    justify-content: flex-start;
+    max-width: 100%;
+    padding-top: 2rem;
+  }
+
+  .hero__title-section {
+    margin-bottom: 1rem;
   }
 
   .hero__name {
     font-size: 2.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+  }
+
+  .hero__info-section {
+    margin-top: 1rem;
+    max-width: 100%;
+    gap: 1.5rem;
   }
 
   .hero__intro {
@@ -190,18 +228,86 @@
 
   .hero__socials {
     justify-content: center;
-    margin-top: 1.8rem;
+    margin-top: 2rem;
+    gap: 2rem;
   }
 
-  .hero__player {
-    margin-top: 0;
+  /* Reproductor abajo y más pequeño */
+  .hero__right {
+    order: 1;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  /* Reproductor estilo Spotify mini en móvil */
+  .hero__right .audio-player {
+    padding: 1rem;
+    max-width: 280px;
+    border-radius: 8px;
+  }
+
+  .hero__right .audio-player__cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+
+  .hero__right .audio-player__info {
+    text-align: left;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    padding-top: 0.3rem;
+  }
+
+  .hero__right .audio-player__info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .hero__right .audio-player__info p {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+    color: #888;
+  }
+
+  .hero__right .audio-player__progress {
+    clear: both;
+    margin-bottom: 0.8rem;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero__right .audio-player__buttons {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .hero__right .circle-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero__right .circle-btn.play-icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
-/* ✅ NUEVO CONTENEDOR PARA UNIFICAR ANCHO */
-.container {
-  width: 100%;
-  max-width: 1300px;
-  padding: 0 2rem;
-  margin: 0 auto;
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 1rem 2rem;
+  }
+  
+  .hero__name {
+    font-size: 2.2rem;
+  }
+  
+  .hero__left {
+    gap: 1.5rem;
+  }
 }
